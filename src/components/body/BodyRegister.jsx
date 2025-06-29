@@ -45,9 +45,9 @@ function BodyRegister() {
   //   );
   // }
 
-  const registerUser = async (data) => {  
+  const registerUser = async (data) => {
     try {
-      let res = await userAction(data,"register");
+      let res = await userAction(data, "register");
       if (!res) {
         navigate("/home");
         return;
@@ -86,7 +86,7 @@ function BodyRegister() {
               pattern: {
                 value: /^[A-Za-zñÑ]+$/,
                 message:
-                  "El campo apellido solo puede contener letras sin espacios ni caracteres especiales",
+                  "El campo nombre solo puede contener letras sin espacios ni caracteres especiales",
               },
               minLength: {
                 value: 2,
@@ -112,6 +112,11 @@ function BodyRegister() {
               required: {
                 value: true,
                 message: "La campo apellido es requerido",
+              },
+              pattern: {
+                value: /^[A-Za-zñÑ]+$/,
+                message:
+                  "El campo apellido solo puede contener letras sin espacios ni caracteres especiales",
               },
               minLength: {
                 value: 2,
@@ -193,8 +198,7 @@ function BodyRegister() {
               },
               maxLength: {
                 value: 20,
-                message:
-                  "La contraseña debe tener menos de 20 caracteres",
+                message: "La contraseña debe tener menos de 20 caracteres",
               },
               pattern: {
                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/,
